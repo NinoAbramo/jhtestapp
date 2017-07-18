@@ -46,7 +46,7 @@ const Home = {
     },
     methods: {
         createPlayer() {
-            axios.post(store.state.siteURL +'api/users', {
+            axios.post(store.state.siteUrl +'api/users', {
                     playername: this.playerName
                 })
                 .then(response => {
@@ -61,7 +61,7 @@ const Home = {
 
         },
         refreshPlayers() {
-            axios.get(store.state.siteURL + 'api/game/' + this.playerId)
+            axios.get(store.state.siteUrl + 'api/game/' + this.playerId)
                 .then(response => {
                     store.commit('setPlayers', response.data.players)
                 })
@@ -127,7 +127,7 @@ new Vue({
         }
     },
     created() {
-        axios.get(store.state.siteURL +'api/game/nonplayer')
+        axios.get(store.state.siteUrl +'api/game/nonplayer')
             .then(response => {
                 store.commit('setPlayers', response.data.players)
             })
